@@ -47,7 +47,7 @@ view: +ios_subscriptions {
     hidden: yes
     sql:
       {% if parameters.select_timeframe_advanced._parameter_value == 'day' %}
-        ${ios_subscriptions.created_date}
+        ${ios_subscriptions.event_date}
       {% elsif parameters.select_timeframe_advanced._parameter_value == 'week' %}
         ${ios_subscriptions.created_week}
       {% elsif parameters.select_timeframe_advanced._parameter_value == 'year' %}
