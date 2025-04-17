@@ -1,6 +1,9 @@
+### VIEW DESCRIPTION ###
+# This view contains base filters used for other view files.
+
 view: base_filters {
 
-  ############################################################ FILTERS ############################################################
+### FILTERS ###
 
   parameter: formatting_style {
     label: "Formatting Style"
