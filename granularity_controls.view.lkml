@@ -1,11 +1,14 @@
+### VIEW DESCRIPTION ###
+# This view contains the granularity controls to be used in other views.
+
 view: granularity_controls {
   extension: required
 
-  ############################################################ FILTERS ############################################################
+### FILTERS ###
 
   parameter: timeframe_picker {
     label: "Date Granularity Picker"
-    description: "Use this picker to change the level of data aggregation"
+    description: "Use this picker to change the level of data aggregation."
     type:  unquoted
     allowed_value: { label: "Day" value: "date" }
     allowed_value: { label: "Week" value: "week" }
@@ -15,11 +18,11 @@ view: granularity_controls {
     default_value: "date"
   }
 
-  ############################################################ DIMENSIONS ############################################################
+### DIMENSIONS ###
 
   dimension: date_granularity {
     label: "Date Granularity"
-    description: "Use this value when you would like to change the aggregation of data in the visualization"
+    description: "Use this value when you would like to change the aggregation of data in the visualization."
     label_from_parameter: timeframe_picker # see label parameter in allowed values
     sql:
         {% if timeframe_picker._parameter_value == 'date' %} ${dim_date_key_date}
@@ -35,7 +38,7 @@ view: granularity_controls {
   dimension_group: dim_date_key {
     group_label: "Date"
     label: ""
-    description: "Common Date that can be used across visualizations.  Based on date record was process in our system"
+    description: "Common Date that can be used across visualizations. Based on date record was process in our system."
     hidden: yes
     type: time
     timeframes: [
