@@ -1,18 +1,20 @@
-view: dynamic_period_over_period {
-  # Anytime this is extended into another view, make sure that you are using a dummy join in
-  extension: required
+### VIEW DESCRIPTION ###
+# This view contains the dynamic period over period filter to be used in other views that support GoogleSQL.
 
-  ############################################################ FILTERS ############################################################
+view: dynamic_period_over_period {
+  extension: required # Anytime this is extended into another view, make sure that you are using a dummy join in
+
+### FILTERS ###
 
   filter: date_filter {
     view_label: "Period Over Period"
     label: "Period Over Period Date Filter"
-    description: "Use this date filter in explores to create period over period dynamic date filters"
+    description: "Use this date filter in explores to create period over period dynamic date filters."
     type:  date
     sql: ${period} IS NOT NULL ;;
   }
 
-  ############################################################ DIMENSIONS ############################################################
+### DIMENSIONS ###
 
   dimension_group: filter_start {
     hidden: yes
@@ -61,15 +63,13 @@ view: dynamic_period_over_period {
     hidden: yes
     type: yesno
     sql:
-      ${common_date_for_extension} >= ${filter_start_date} AND ${common_date_for_extension} < ${filter_end_date}
-    ;;
+      ${common_date_for_extension} >= ${filter_start_date} AND ${common_date_for_extension} < ${filter_end_date} ;;
   }
 
   dimension: is_previous_period { # Make sure to add any new models to this dimension for correct PoP analysis
     hidden: yes
     type: yesno
     sql:
-      ${common_date_for_extension} >= ${previous_start_date} AND ${common_date_for_extension} < ${filter_start_date}
-    ;;
+      ${common_date_for_extension} >= ${previous_start_date} AND ${common_date_for_extension} < ${filter_start_date} ;;
   }
 }
