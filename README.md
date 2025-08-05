@@ -74,11 +74,3 @@ Use the period dimension to break down metrics by Current and Previous periods f
 ## 📌 Dependencies
 - Looker (LookML 4.0+)
 - Compatible with models using time-based data and a standard date field (`common_date_for_extension` recommended)
-
----
-
-## 📝 Contributing
-Feel free to open issues or submit PRs to:
-- Improve compatibility
-- Support new SQL dialects
-- Introduce new parameter controls
